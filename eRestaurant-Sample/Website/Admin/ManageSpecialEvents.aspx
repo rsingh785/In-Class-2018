@@ -9,15 +9,24 @@
     <asp:ListView ID="ListView1" runat="server" DataSourceID="SpecialEventsDataSource" InsertItemPosition="LastItem">
        
         <EditItemTemplate>
-            <span style="">EventCode:
-                <asp:TextBox Text='<%# Bind("EventCode") %>' runat="server" ID="EventCodeTextBox" /><br />
-                Description:
-                <asp:TextBox Text='<%# Bind("Description") %>' runat="server" ID="DescriptionTextBox" /><br />
-                <asp:CheckBox Checked='<%# Bind("Active") %>' runat="server" ID="ActiveCheckBox" Text="Active" /><br />
-                Reservations:
-                <asp:TextBox Text='<%# Bind("Reservations") %>' runat="server" ID="ReservationsTextBox" /><br />
-                <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" /><asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" /><br />
-                <br />
+            <span style="">
+                
+                <asp:LinkButton runat="server" CommandName="Update" Text="Update" ID="UpdateButton"></asp:LinkButton>
+                &nbsp;&nbsp;
+                <asp:LinkButton runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" ></asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                 <asp:CheckBox Checked='<%# Bind("Active") %>' runat="server" ID="ActiveCheckBox" Text="Active" />
+
+                &mdash;
+               <asp:Label ID="Label5"  runat="server" AssociatedControlID="EventCodeTextBox" CssClass="control-label" >Event Code</asp:Label> 
+                <asp:TextBox Text='<%# Bind("EventCode") %>' runat="server" ID="EventCodeTextBox" />
+                &mdash;
+               
+                 <asp:Label ID="Label6"  runat="server" AssociatedControlID="DescriptionTextBox" CssClass="control-label" >Description</asp:Label>
+                <asp:TextBox Text='<%# Bind("Description") %>' runat="server" ID="DescriptionTextBox" />
+               &mdash;
+               
+        
             </span>
         </EditItemTemplate>
         <EmptyDataTemplate>
@@ -27,12 +36,12 @@
             <span style="">
                 
                   <asp:LinkButton runat="server" CommandName="Insert" ID="InsertButton"> Insert<span class="glyphicon glyphicon-plus"></span></asp:LinkButton>
-                
-                  <asp:LinkButton runat="server" CommandName="Cancel" ID="CancelButton"> Cancel<span class="glyphicon glyphicon-refresh"></span></asp:LinkButton>
-                <asp:CheckBox Checked='<%# Bind("Active") %>' runat="server" ID="ActiveCheckBox" Text="Active" />
+                &nbsp;&nbsp;
+                  <asp:LinkButton runat="server" CommandName="Cancel" ID="CancelButton"> Cancel<span class="glyphicon glyphicon-refresh"></span></asp:LinkButton>&nbsp;&nbsp; &nbsp;
+                <asp:CheckBox Checked='<%# Bind("Active") %>' runat="server" ID="ActiveCheckBox" Text="Active" />  &mdash;
                
                 <asp:Label ID="Label3" runat="server" AssociatedControlID="EventCodeTextBox" CssClass="control-label">Event Code</asp:Label>
-             
+               &mdash;
                 <asp:TextBox Text='<%# Bind("EventCode") %>' runat="server" ID="EventCodeTextBox" />
                 <asp:Label ID="Label4" runat="server" AssociatedControlID="DescriptionTextBox" CssClass="control-label">Description</asp:Label>
                 <asp:TextBox Text='<%# Bind("Description") %>' runat="server" ID="DescriptionTextBox" />
