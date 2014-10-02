@@ -3,11 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
     <asp:Repeater ID="MenuItemRepeater" runat="server" DataSourceID="MenuItemDataSource">
-        <ItemTemplate>
-            <%#((decimal) Eval("CurrentPrice")).ToString("C") %>
-            &mdash; <%# Eval("Description") %> &ndash <%# Eval ("Category.Description") %>
-            &ndash; <%# Eval ("Calories") %> Calories
-        </ItemTemplate>
+     
+           <ItemTemplate>
+    <img src="http://placehold.it/150x100/" alt="" /><%# Eval("Description") %>
+               <asp:Repeater ID="ItemDetailRepeater" runat="server" DataSource='<%# Eval("MenuItems") %>'>
+                   <ItemTemplate>
+                       <div>
+                           <%# Eval ("Description") %>&mdash;
+                           <%# Eval ("Calories") %> &mdash;
+                           <%# ((decimal) Eval("Price")).ToString("C") %>
+                           <br />
+                           <%# Eval ("Comment") %>
+                       </div>
+                   </ItemTemplate>
+               </asp:Repeater>
+</ItemTemplate>
+     
         <SeparatorTemplate>
             <hr />
         </SeparatorTemplate>
