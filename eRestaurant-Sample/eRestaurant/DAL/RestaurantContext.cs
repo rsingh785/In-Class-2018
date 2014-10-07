@@ -9,7 +9,7 @@ using eRestaurant.BLL;
 
 namespace eRestaurant.DAL
 {
-    public class RestaurantContext :DbContext
+    public class RestaurantContext : DbContext
     {
         // Constructor that calls a base- class constructor to specify the 
         // Connnection string we neeed to use.
@@ -33,8 +33,8 @@ namespace eRestaurant.DAL
               .WithMany(t => t.Reservations)
               .Map(mapping =>
               {
-                  mapping.ToTable("Reservations");
-                  mapping.MapLeftKey("Reservations");
+                  mapping.ToTable("ReservationTables");
+                  mapping.MapLeftKey("ReservationID");
 
                   mapping.MapRightKey("TableID");
               });
