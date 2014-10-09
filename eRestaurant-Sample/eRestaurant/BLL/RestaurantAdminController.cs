@@ -257,7 +257,7 @@ namespace eRestaurant.BLL
         #endregion
         #endregion
 
-       [DataObjectMethod(DataObjectMethodType.Select, false)]
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<Reservation> LookupReservationsBySpecialEvent(string eventCode)
         {
             using (RestaurantContext context = new RestaurantContext())
@@ -267,7 +267,22 @@ namespace eRestaurant.BLL
                            select info;
                 return data.ToList();
             }
+
         }
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Item> LookupMenuItemByCategory(string description)
+        {
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                var result = from data in context.Items
+                             where data.Description == description
+                             select data;
+
+                return result.ToList();
+            }
+
+        }
+
     }
 
 }
