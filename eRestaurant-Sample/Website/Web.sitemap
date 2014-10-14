@@ -21,5 +21,6 @@
       <siteMapNode url="~/Admin/Items.aspx" title="Items"  description="Manage the Menu" />
       <siteMapNode url="~/Admin/Waiters.aspx" title="Waiters"  description="Staff Management" />
     </siteMapNode>
+    <siteMapNode url ="~/ReservationsBySpecialEvent.aspx" title ="ReservationBySpecialEvent" description="Reservation By Special Events"></siteMapNode>
   </siteMapNode>
 </siteMap>
