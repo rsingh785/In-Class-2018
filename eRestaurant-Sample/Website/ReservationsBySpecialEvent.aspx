@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class=" row col-md-12">
         <h1>ReservationsBySpecialEvents</h1>
-        SpecialEvent<asp:DropDownList ID="SpecialDropDownList" runat="server" DataSourceID="ObjectDataSource1" DataTextField="DropDownList" DataValueField="Reservations" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        SpecialEvent<asp:DropDownList ID="SpecialDropDownList" runat="server" DataSourceID="SpecialEventDropDown" DataTextField="DropDownList" DataValueField="Reservations" >
             <asp:ListItem>No Event</asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="Button1" runat="server" Text="View Reservations" />
@@ -11,10 +11,10 @@
         <br />
       
         <p> 
-           <asp:ObjectDataSource ID="SpecialEventDropDown" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListAllReservations" TypeName="eRestaurant.BLL.ReservationController" OnSelecting="ObjectDataSource1_Selecting"></asp:ObjectDataSource>
+           <asp:ObjectDataSource ID="SpecialEventDropDown" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListAllReservations" TypeName="eRestaurant.BLL.ReservationController" ></asp:ObjectDataSource>
         </p>
         <p> 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="ObjectDataSource2" Height="295px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="193px">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="ObjectDataSource2" Height="295px"  Width="193px">
                 <Columns>
                     <asp:BoundField DataField="CustomerName" HeaderText="CustomerName" SortExpression="CustomerName" />
                     <asp:BoundField DataField="ReservationDate" HeaderText="ReservationDate" SortExpression="ReservationDate" />
