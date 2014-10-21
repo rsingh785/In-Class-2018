@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class=" row col-md-12">
-        <h1>ReservationsBySpecialEvents</h1>
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ReservationsBySpecialEvents</h1>
         SpecialEvent<asp:DropDownList ID="SpecialDropDownList" runat="server" DataSourceID="ObjectDataSource1" DataTextField="DropDownList" DataValueField="Reservations" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             <asp:ListItem>No Event</asp:ListItem>
             </asp:DropDownList>
