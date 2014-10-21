@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:ObjectDataSource ID="ReportDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetReportCategoryMenuItems" TypeName="eRestaurant.BLL.ReportsController"></asp:ObjectDataSource>
     <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana"
-         Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+         Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowExportControls="False" Height="400px" Width="100%">
         <LocalReport ReportPath="Report\CategoryMenuItemsrdlc.rdlc">
             <DataSources>
                 <rsweb:ReportDataSource Name="CategoryMenuItemDataSet" DataSourceId="ReportDataSource"></rsweb:ReportDataSource>
