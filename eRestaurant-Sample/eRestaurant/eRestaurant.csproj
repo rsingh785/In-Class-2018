@@ -64,6 +64,7 @@
     <Compile Include="Entities\SpecialEvent.cs" />
     <Compile Include="Entities\Table.cs" />
     <Compile Include="Entities\Waiter.cs" />
+    <Compile Include="POCO%27s\CategorizedItemSale.cs" />
     <Compile Include="POCO%27s\CategoryMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
