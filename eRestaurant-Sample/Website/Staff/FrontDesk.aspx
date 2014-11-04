@@ -33,6 +33,13 @@
  </div>
  </div>
     <uc1:MessageUserControl runat="server" id="MessageUserControl" />
-
+    <details open>
+        <summary>
+            Table
+        </summary>
+        <asp:GridView ID="SeatingGridView" runat="server" ItemType="eRestaurant.Entities.DTO's.SeatingSummary "  AutoGenerate
+            DataSourceID="SeatingDataSource"></asp:GridView>
+       
+    </details>
 </asp:Content>
 

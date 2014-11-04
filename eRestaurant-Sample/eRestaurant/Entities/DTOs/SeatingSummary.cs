@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace eRestaurant.Entities.DTOs
 {
-    class SeatingSummary
+   public class SeatingSummary
     {
+       public byte Table { get; set; }
+   {
+       Table = date.Table,
+       Seating = data.Seating,
+       Taken = data.Taken,
+       BillID = data.Taken ?
+                data.CommonBilling.BillID
+                    :
+                
+
+   }
+
     }
 }
