@@ -126,3 +126,6 @@
 </asp:Content>
 
 
+<asp:Panel ID="BILLInfo" runat ="server" CssClass="inline-div"
+     Visible=" <%# Item.BillTotal.HasValue && Item.BillTotal.Value >  0 %> "> 
+    <asp:Label ID="Label1" runat ="server"  Text='<%# string.Format("&ndash; ={0:C}") ,  Item.BillTotal) %>' /></asp:Panel>
