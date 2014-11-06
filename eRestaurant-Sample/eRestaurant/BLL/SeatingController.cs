@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace eRestaurant.BLL
 {
+
     [DataObject]
     public class SeatingController
     {
@@ -25,7 +26,7 @@ namespace eRestaurant.BLL
                 var step1 = from data in context.Tables
                             select new
                             {
-                                Table = data.TableNumber,
+                                Table = data.Tablenumber,
                                 Seating = data.Capacity,
                                 // This sub-query gets the bills for walk-in customers
                                 Bills = from billing in data.Bills
@@ -49,7 +50,10 @@ namespace eRestaurant.BLL
                                                       billing.BillDate.Year == date.Year
                                                    && billing.BillDate.Month == date.Month
                                                    && billing.BillDate.Day == date.Day
-                                                   && billing.BillDate.TimeOfDay <= time
+                                                   // The following won't work in EF to Entities - it will return this exception:
+                                                   //  "The specified type member 'TimeOfDay' is not supported..."
+                                                   // && billing.BillDate.TimeOfDay <= time
+                                                   && DbFunctions.CreateTime(billing.BillDate.Hour, billing.BillDate.Minute, billing.BillDate.Second) <= time
                                                    && (!billing.OrderPaid.HasValue || billing.OrderPaid >= time)
                                                //							&& (!billing.PaidStatus || billing.OrderPaid >= time)
                                                select billing
@@ -60,6 +64,15 @@ namespace eRestaurant.BLL
                 // .ToList() helps to resolve the "Types in Union of Concat are constructed incompatibly" error
                 var step2 = from data in step1.ToList() // .ToList() forces the first result set to be in-memory
                             select new
+
+
+
+
+
+
+
+
+
                             {
                                 Table = data.Table,
                                 Seating = data.Seating,
@@ -151,3 +164,4 @@ namespace eRestaurant.BLL
         #endregion
     }
 }
+

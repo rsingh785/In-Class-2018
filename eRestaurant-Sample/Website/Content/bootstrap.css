@@ -860,8 +860,8 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-    top: 17px;
-    left: 0px;
+    top: -16px;
+    left: -1px;
 }
 
 .col-xs-1,
