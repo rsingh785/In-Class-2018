@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace eRestaurant.DAL.Security
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+   internal class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection")
