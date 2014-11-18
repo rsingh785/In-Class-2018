@@ -43,9 +43,6 @@ public partial class Staff_FrontDesk : System.Web.UI.Page
         }, "Customer Seated", "New walk-in customer has been seated");
     }
 
-    
-
-
     protected void ReservationSummaryListView_OnItemCommand(object sender, ListViewCommandEventArgs e)
     {
         // Check the command name and add the reservation for the specified seats.
@@ -70,6 +67,7 @@ public partial class Staff_FrontDesk : System.Web.UI.Page
             }, "Customer Seated", "Reservation customer has arrived and has been seated");
         }
     }
+
     protected bool ShowReservationSeating()
     {
         // TODO: Get the reservations for the day and return true if there are reservations, false otherwise

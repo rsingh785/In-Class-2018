@@ -21,13 +21,11 @@
             <h4>Mock Date/Time</h4>
             <div class="pull-right col-md-5">
                 Last Billed Date/Time:
-               
                 <asp:Repeater ID="AdHocBillDateRepeater" runat="server"
                     ItemType="System.DateTime" DataSourceID="AdHocBillDateDataSource">
                     <ItemTemplate>
                         <%# Item.ToShortDateString() %>
                         &ndash;
-                       
                         <%# Item.ToShortTimeString() %>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -70,7 +68,8 @@
                             <%# Item.Time %>
                             <small><%# Item.Reservations.Count %> reservations at this time-slot</small>
                         </h4>
-                        <asp:ListView ID="ReservationSummaryListView" runat="server" OnItemCommand="ReservationSummaryListView_OnItemCommand"
+                        <asp:ListView ID="ReservationSummaryListView" runat="server"
+                            OnItemCommand="ReservationSummaryListView_OnItemCommand"
                             ItemType="eRestaurant.Entities.DTOs.ReservationSummary"
                             DataSource='<%# Item.Reservations %>'>
                             <LayoutTemplate>
@@ -81,30 +80,19 @@
                             <ItemTemplate>
                                 <div>
                                     <%# Item.Name %> &mdash;
-                                   
                                     <%# Item.NumberInParty %> &mdash;
-                                   
                                     <%# Item.Status %> &mdash;
                                     PH:
-                                   
                                     <%# Item.Contact %>
-                                    <asp:LinkButton ID="InsertButton" runat="server" CommandName="Seat" CommandArgument='<%# Item.ID %>'>Reservation Seating<span class="glyphicon glyphicon-plus"></span></asp:LinkButton>
+                                    <asp:LinkButton ID="InsertButton" runat="server"
+                                        CommandName="Seat" CommandArgument='<%# Item.ID %>'>
+                                        Reservation Seating<span class="glyphicon glyphicon-plus"></span>
+                                    </asp:LinkButton>
                                 </div>
                             </ItemTemplate>
                         </asp:ListView>
                     </ItemTemplate>
                 </asp:Repeater>
-                
-                <%--For the Waiter DropDown--%>
-                <asp:ObjectDataSource runat="server" ID="WaitersDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="ListAllWaiters" TypeName="eRestaurant.BLL.RestaurantAdminController"></asp:ObjectDataSource>
-
-                <%--For the Available Tables DropDown (seating reservation)--%>
-                <asp:ObjectDataSource runat="server" ID="ObjectDataSource1" OldValuesParameterFormatString="original_{0}" SelectMethod="AvailableSeatingByDateTime" TypeName="eRestaurant.BLL.SeatingController">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="SearchDate" PropertyName="Text" Name="date" Type="DateTime"></asp:ControlParameter>
-                        <asp:ControlParameter ControlID="SearchTime" PropertyName="Text" DbType="Time" Name="time"></asp:ControlParameter>
-                    </SelectParameters>
-                </asp:ObjectDataSource>
                 <asp:ObjectDataSource runat="server" ID="ReservationsDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="ReservationsByTime" TypeName="eRestaurant.BLL.SeatingController">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="SearchDate" PropertyName="Text" Name="date" Type="DateTime"></asp:ControlParameter>
